@@ -1,54 +1,39 @@
-# The 13th Frame
+# THE 13TH FRAME · الإطار الثالث عشر
 
-A private, seven-act interactive gothic mystery for Zayneb Hameed. It's a static site: plain HTML, CSS and JavaScript with local images, so there's no build step and no server.
+A small static website: plain HTML, CSS and JavaScript with local images and fonts. There's no build step, no server and no external services, apart from YouTube's official player for one song.
 
-## What's in this folder
+Live: https://tafa3ulhub-lang.github.io/zayneb/
+
+## Files
 
 ```
-index.html     the whole site (styles and script are inside)
-assets/        every image the site uses
-  poster.jpg                        poster shown on screen
-  zayneb-hameed-the-13th-frame.png  1080 × 1920 poster used for Download and Share
-  mandala.jpg                       Zayneb's original mandala (Act III)
-  room.jpg, room-shadow.jpg         the darkroom print and its "changed" version (Act II)
-  frame-01.jpg … frame-13.jpg       the archive filmstrip (frame-07b.jpg is the revisited frame)
-  subject.jpg                       her original photo for the identity analysis (Act V)
-  favicon.png, social-preview.jpg
+index.html        the whole site (styles and script are inside)
+assets/           images used by the site
+assets/fonts/     self-hosted webfonts (SIL Open Font License, see OFL.txt)
 ```
 
-## Publishing with GitHub Pages
-
-1. In this repository, open **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to *Deploy from a branch*, choose the `main` branch and the `/ (root)` folder, then **Save**.
-3. Wait a minute or two, then refresh that page. The site will be at:
-   `https://tafa3ulhub-lang.github.io/zayneb/`
-4. Make the QR code for the envelope from that link, **without** `?preview=1`.
-
-Any change merged into `main` republishes the site automatically within a few minutes.
+Every path is relative (`./assets/...`), so the site works under the `/zayneb/` GitHub Pages path.
 
 ## Preview mode
 
-Add `?preview=1` to the address:
+Add `?preview=1` (or `#preview`) to the address. A small panel at the bottom lets you:
 
-`https://tafa3ulhub-lang.github.io/zayneb/?preview=1`
+- jump to any scene
+- solve the current scene
+- show its hints
+- open the poster and test the download
+- see the ending
+- restart
+- try the second-visit variation
 
-This shows a panel with **Prev**, **Next**, **Final reveal** and **Restart**. Every act plays its animations and taps itself through, so you can watch the whole story without touching anything. `#preview` at the end of the address works too.
+The normal address never shows this panel.
 
-Zayneb's link should not include `?preview=1`. Without it, the panel never appears.
+## Publishing
 
-## The song (Act IV)
+GitHub Pages publishes from the `main` branch, root folder (**Settings → Pages**). Changes merged into `main` appear on the live address within a few minutes.
 
-When she taps the record, the official YouTube video of Adonis — حلمت (`hwwbh7tVL_8`) plays in the visible player on the radiogram, through YouTube's official embed. Nothing is downloaded or rehosted.
+## Notes
 
-- Music starts only after she taps.
-- **Pause** and **Mute** buttons control the player, and the record stops spinning when the music is paused.
-- Leaving the scene pauses the song.
-- If YouTube can't load, or the video's owner blocks embedding, the cabinet shows a "Listen on YouTube" link and the story carries on.
-
-## Sound
-
-Sound effects are off by default and are generated in the browser (nothing is copied from elsewhere). She can turn them on at the opening screen or with the button at the top. The story works fully with sound off.
-
-## Editing the letter
-
-Search `index.html` for `Dear Zayneb` and edit the paragraphs below it.
+- Sound effects are generated in the browser and are off until the visitor turns them on.
+- The song plays only through YouTube's official embedded player, and only after a tap. If the player can't load, a link to YouTube appears and the site carries on.
+- The site stores one small flag in the visitor's browser (`localStorage`) after the ending, used for a small change on a second visit. Nothing else is stored or sent anywhere.
